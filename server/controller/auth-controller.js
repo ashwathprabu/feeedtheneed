@@ -1,37 +1,28 @@
-const express = require('express');
-const routes = require('express').Router();
 const jwt = require('jsonwebtoken');
-
-const jwtsecret = require('../config/jwtsecret')
-const maindb = require('../models/user');
 const mongoose = require('mongoose');
+const jwtsecret = require('../config/jwt-config')
+const maindb = require('../models/user-model');
 
 const registerController = (req, res, next) => {
       mongoose.set('useFindAndModify', false);
       maindb.findOne({ email: req.body.email }, (err, user) => {
             if (err) { console.log('error') }
-            if (user) {
-                  res.json({
-                        message: 'user exist',
-                        success: false
+            if (user) res.json({ message: 'user exist', success: false })
+            else {
+                  // You use the object resolution to get the params from req.body
+                  // Then you use them directly in the object. This improves readability
+                  let { fname, lname, phone, email, password } = req.body;
 
-                  })
-                  return false;
-            } else {
+                  // { fname : xyz } is equal to { fname }
+                  // During compile time { fname } is expanded to { fname : xyz }
                   const user = new maindb({
-                        fname: req.body.fname,
-                        lname: req.body.lname,
-                        phone: req.body.phone,
-                        email: req.body.email,
-                        password: req.body.password
+                        fname, lname, phone, email, password
                   })
 
+                  // Try using promises here. 'await' keyword.
+                  // try { await user.save() } catch(err) {};
                   user.save((err) => {
-                        if (err) {
-                              res.json({
-                                    err: 'err'
-                              })
-                        }
+                        if (err) res.json({ err: 'err' })
                         console.log("saved succffully")
                         res.json({
                               message: "Data saved",
