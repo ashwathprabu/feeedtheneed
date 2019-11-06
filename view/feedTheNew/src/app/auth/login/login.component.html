@@ -1,0 +1,51 @@
+<div class="container" id="content">
+    <div class="row">
+      <div class="col l3 m3 s12"></div>
+      <div class="col l6 m6 s12">
+        <form> 
+             <div class="card-panel z-depth-2">
+             <h5 class="center">Login</h5>
+             <p  class="center">Join to our community now !</p>  
+               <div class="input-field">
+                <i  class="material-icons prefix">email</i>
+                <input 
+                    type="email" 
+                    name="email" 
+                    [(ngModel)]="userData.email"
+                    class="validate"  
+                    required>
+                  <label>Enter email</label>
+                <span class="helper-text" data-error="wrong" data-success="right"></span>
+               </div>
+               <div class="input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input 
+                      type="password" 
+                      [(ngModel)]="userData.password"
+                      name="password" 
+                      class="validate"  
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
+                      required>
+                <label>Enter password</label>
+                <span 
+                class="helper-text" 
+                data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                data-success="right"> 
+              </span>
+              </div>
+              <div class="input-field">
+                    Are you New? <a routerLink="/register"  class="modal-trigger">Register</a>
+                  
+              </div>
+             
+              <input type="submit"  name="submit" (click)="loginUser()" value="Login"  class="btn left col s12 m12 l12"> 
+              
+              <div class="clearfix">
+  
+                
+              </div>
+           </div>
+        </form>
+        
+      </div>
+      </div>

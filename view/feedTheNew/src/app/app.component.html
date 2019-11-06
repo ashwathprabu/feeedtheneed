@@ -1,0 +1,26 @@
+<div class="card-panel light-green darken-2" style="margin-top: 0px;margin-bottom: 0px" >
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper transparent">
+            <a href="#" class="brand-logo" style="font-family: 'Caveat', cursive;">FeedTheNeed</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/']"   >Home</a></li>
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/about']">About us</a></li>
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a *ngIf="!auth.isLogin()" [routerLink]="['/login']">Log-in</a></li>
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a *ngIf="auth.isLogin()"  [routerLink]="['/login']" (click)="auth.logout()">Log-out</a></li>
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a *ngIf="auth.isLogin()"  [routerLink]="['/usercontrolpanel']">Profile</a></li>
+              <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a *ngIf="!auth.isLogin()" [routerLink]="['/register']">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+    <ul class="sidenav light-green darken-2" id="mobile-demo">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="white-text" [routerLink]="['/']">Home</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="white-text" [routerLink]="['/about']">About us</a></li>
+        <!-- <li><a class="white-text" href="collapsible.html">Features</a></li> -->
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="white-text" [routerLink]="['/register']">Register</a></li>
+    </ul>
+
+
+<router-outlet></router-outlet>
+ 

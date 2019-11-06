@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+.card-pane{ 
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 25px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 10px;
+    background-color: #fff;
+  }
