@@ -1,10 +1,6 @@
-
-
-
 module.exports = {
-    SECRET : '8be5ba28bfb1cb0975d1a6e616246a52ff38cef6',
-    ADMINSECRET : '8be5ba28bfb1cb0975d1a6e616246a52ff38cef6h2n23n123h12312j'
-           
+    SECRET: '8be5ba28bfb1cb0975d1a6e616246a52ff38cef6',
+    ADMINSECRET: '8be5ba28bfb1cb0975d1a6e616246a52ff38cef6h2n23n123h12312j'
 }
 
 
