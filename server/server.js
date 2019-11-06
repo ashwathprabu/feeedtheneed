@@ -1,21 +1,18 @@
+const express = require('express'),
+    mongoos = require('mongoose'),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    db = require('./config/connect'),
+    app = express(),
+    PORT = 3000,
+    jwt = require('express-jwt'),
+    cors = require('cors')
 
-// Section : 1
-const express     = require('express'),
-      mongoos     = require('mongoose'),
-    //   mongo       = require('mongodb').mongo,
-      path        = require('path'),
-      bodyParser  = require('body-parser'),
-      db          = require('./config/connect'),
-      app         = express(),
-      PORT        = 3000;
-      const jwt = require('express-jwt'); 
-      var cors = require('cors')
-      app.use(cors())
-//Section : 2
-//Connection to the databse
-mongoos.connect(db.url, {useNewUrlParser : true})
-.then(()=> console.log('Connection established!'))
-.catch((err => console.log('Connection failed :(')))
+app.use(cors())
+
+mongoos.connect(db.url, { useNewUrlParser: true })
+    .then(() => console.log(`Connection established!`))
+    .catch((err => console.log(`Connection Failed : ${err.message}`)))
 
 //Section : 3
 // // Angular DIST output folder
@@ -26,13 +23,13 @@ mongoos.connect(db.url, {useNewUrlParser : true})
 
 // Section : 4
 //error handling middleware
-app.use((err, req, res, next) =>{
+app.use((err, req, res, next) => {
     res.send(err);
 });
 
 
 //Section : 5
-app.use(bodyParser.urlencoded({extended : true}));  
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // routing config
@@ -40,8 +37,8 @@ app.use(bodyParser.json());
 app.use('/food', require('./routes/route'));
 
 
-app.listen(PORT,()=>{
-    console.log(`Server is listening at port : ${PORT}` );
+app.listen(PORT, () => {
+    console.log(`Server is listening at port : ${PORT}`);
 });
 
 
