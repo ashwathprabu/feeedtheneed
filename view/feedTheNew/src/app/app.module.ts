@@ -19,11 +19,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { UserdashboardModule } from './userdashboard/userdashboard.module'; 
 import { PageNotFoundModule } from './page-not-found/page-not-found.module'; 
 import {AuthGuard} from '../app/route-guard/auth.guard';
-import { SendReqService } from './userpane/send-req.service';
+import { SendReqService } from './userpane/send-req.service'; 
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,   
   ],
   imports: [
     AppRoutingModule,

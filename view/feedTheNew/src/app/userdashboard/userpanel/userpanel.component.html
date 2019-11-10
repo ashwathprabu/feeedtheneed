@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="card-panel z-depth-0">
  
                <div class="row">
@@ -35,14 +35,16 @@
                                   <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
                                   </div>
-                                </div>
+                                </div> -->
+                  <!-- file -->
                                  <!-- <div class="input-field">
                                    <input type="text" name="title"
                                    [(ngModel)]="reqData.title"
                                    placeholder="title" id="title">
                                    <label for="title">Title</label>
                                  </div> -->
-                                 <div class="input-field">
+                  <!-- file till here -->
+                                 <!-- <div class="input-field">
                                    <input type="text"  [(ngModel)]="reqData.loc" name="loc" placeholder="Location" id="locl">
                                    <label for="Location">Location</label>
                                  </div>
@@ -55,29 +57,227 @@
                                    <label for="message">Message</label>
                                  </div><div class="center">
                                     <a href="/usercontrolpanel" class="btn-floating btn-large waves-effect waves-light teal lighten-2" (click)="sendReq()" ><i class="material-icons">send</i></a>
-                                 <!-- <input type="submit" value="send request" (click)="sendReq()" class="btn"> -->
+                                 
                                </div>
                                </div>
                               </form>
                              </div></li> 
                             </ul>
                    </div> 
-            
+             
        
        </div>  
-</div>  
-<div class="container">
-  <div class="row">
-    <div class="col s6 m6 l3" *ngFor="let req of reqs" >
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title"><h3>{{req.title}}</h3></span>
-              <p>{{req.desc}}</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Request Sent</a>
-            </div>
+</div>-->
+<div class="container z-depth-0">
+    <ul class="collection" style="border-radius: 7px">
+    <li class="collection-item"> 
+        <nav class="z-depth-0 white black-text" style="border-radius: 7px">
+          <div class="nav-wrapper z-depth-0">
+          <div class="col s12">
+             <blockquote>
+               <a class="breadcrumb black-text flow-text">User | Control Panel</a>
+             </blockquote>
           </div>
+          </div>
+         </nav> 
+      </li>
+      </ul>     
+<ul class="tabs tabs-fixed-width tab-demo z-depth-0">
+  <li class="tab z-depth-0"><a class="active" href="#test1">Donation </a></li>
+  <li class="tab z-depth-0"><a  href="#test2">Food Availabity</a></li> 
+</ul>
+<div id="test1" class="col s12">
+  <!-- =====================tab1========= -->
+
+  <div class="card-panel z-depth-0">
+ 
+      <div class="row">
+              <ul class="collection" style="border-radius: 7px">
+                     
+      <li class="collection-item">
+          <div class="col s12 m12 l12">
+                   <form>
+                      <div class="card-panel light-green lighten-5 z-depth-0" style="border-radius: 7px" >
+                        <div class="center"> <h5>Donate Food</h5></div>
+                        <div class="card-panel z-depth-0">
+                        <div class="input-field">                            
+                         <input 
+                             type="email" 
+                             name="email" 
+                             class="validate"
+                             [(ngModel)]="reqData.email"  
+                             placeholder="email" id="title"
+                             required>
+                           <label>Enter email</label>
+                         <span class="helper-text" data-error="wrong" data-success="right"></span>
+                        </div>
+                       
+                        <!-- <div class="file-field input-field">
+                         <div class="btn">
+                           <span>File</span>
+                           <input type="file" (change)="onSelected($event)">
+                         </div>
+                         <div class="file-path-wrapper">
+                           <input class="file-path validate" type="text">
+                         </div>
+                       </div>  -->
+         <!-- file -->
+            <!-- title -->
+            <div class="input-field ">
+                <select [(ngModel)]="reqData.title" name="title" id="title"> 
+                    <option value="" disabled selected>Choose your option</option>
+                  <option value="prishable">parishable</option>
+                  <option value="non-perishable">non-perishable</option>
+                </select>
+                <label>Type Of Food</label>
+              </div>
+                        <!-- <div class="input-field">
+                          <input type="text" name="title"
+                          [(ngModel)]="reqData.title"
+                          placeholder="Type Of Food" id="title">
+                          <label for="title">Type Of Food</label>
+                        </div> -->
+         <!-- file till here -->
+                      <div class="input-field">
+                          <input type="text"  [(ngModel)]="reqData.loc" name="loc" placeholder="Location" id="locl">
+                          <label for="Location">Location</label>
+                        </div>
+                        <div class="input-field">
+                          <input type="number" [(ngModel)]="reqData.phone" name="phone" placeholder="Phone" id="phone">
+                          <label for="phone">Phone</label>
+                        </div>
+
+
+
+
+                         <!-- Date picker recent change -->
+                         <div class="input-field">
+                         <input type="text" [(ngModel)]="reqData.time" id="date" value="datepicker" name="time" class="datepicker">
+                         <label for="phone">Select food expire date</label>
+                        </div>
+                         <!-- ========================= -->
+                        
+                        
+                        
+                        
+                         <div class="input-field">
+                          <textarea class="materialize-textarea" [(ngModel)]="reqData.desc" name="desc" placeholder="Enter Message" id="message"></textarea>
+                          <label for="message">Message</label>
+                        </div>
+                        <div class="center">
+                           <a  class="btn-floating btn-large teal lighten-2 btn tooltipped" data-position="bottom" data-tooltip="Donate" (click)="sendReq()" >
+                             <i class="material-icons">send</i>
+                           </a>
+                      </div>
+                      </div>
+                    </div>
+                     </form>
+                    </div></li> 
+                   </ul>
+          </div> 
+    
+
+</div>  
+<!-- ==================== -->
+<div class="card-panel z-depth-0">
+<nav class="z-depth-0 white black-text" style="border-radius: 7px">
+    <div class="nav-wrapper z-depth-0">
+
+        <div class="col s12 m12 l12">
+       <blockquote><a class="breadcrumb black-text flow-text">User | Requests</a>
+
+       </blockquote>
         </div>
     </div>
+</nav></div>
+<p></p>
+<div class="divider"></div>
+<p></p>
+<!-- ================= -->
+<!-- <div class="container"> -->
+    <div class="row">
+      <div class="col s12 m6 l4" *ngFor="let req of reqs" >
+          <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title flow-text">{{req.title}}</span>
+                <p>{{req.desc}}</p>
+                <p>{{req.loc}}</p>
+                <p>{{req.phone}}</p>
+              </div>
+              <div class="card-action">
+                <a (click)="delRec(req)">Request Sent</a>
+              </div>
+            </div>
+          <!-- </div> -->
+      </div>
+  
+    </div>
+    <div *ngIf="!findLen()" class="card-panel z-depth-0 blue-grey lighten-5">
+        <div class="center"> No Donations.!!!</div>
+      </div>
+  
+  </div>
+ 
+<!--  =========== 2nd tab===============-->
+
+
+<div id="test2" class="col s12 lime lighten-5">
+  <div   class="card-panel z-depth-0">
+    <div class="container">
+      <div class="card-panel z-depth-0">
+
+        <div class="center flow-text">
+          <span>Available Food</span>
+        </div>
+          <nav class="z-depth-0 white">
+              <div class="nav-wrapper z-depth-1" style="border-radius: 75px;">
+                <!-- <form> -->
+                  <div class="input-field z-depth-0 ">
+                    <input id="search" type="search" placeholder="Search here...!" [(ngModel)]="searchTitle"   required style="border-radius: 75px;">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    
+                  </div>
+                 
+                <!-- </form> -->
+              </div>
+            </nav> 
+            
+          </div>
+      </div>
+<!-- =====Donations=== -->
+<div  class="row">
+<div  class="col s4 m4 l4" *ngFor="let donat of donats | filter : searchTitle" >
+    <div class="card blue-grey darken-1 ">
+        <div class="card-content white-text">
+          <p class="card-title flow-text center"> {{donat.title}} </p> <br>
+          <p class="  white-text">  <i class="material-icons tiny">description</i>
+            {{donat.desc}}</p> 
+          
+          <p class="  white-text">  <i class="material-icons tiny">room</i>
+            {{donat.loc}}</p>
+       
+          <p class="  white-text">  <i class="material-icons tiny">call</i>
+            +91 {{donat.phone}}</p>
+          <p class="  white-text">  <i class="material-icons tiny">delete_sweep</i>
+             {{donat.expdate}}</p><br>
+             <br>
+          <p class="right grey-text text-lighten-2"> published : {{ donat.updatedAt | dateAgo}} </p>
+
+
+        </div>
+        <div class="card-action center">
+          <a class="btn-floating btn-large green">
+            <i class="material-icons">add</i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ======= -->
+
+    </div>
+    
+</div>
+
 </div>

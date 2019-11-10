@@ -11,6 +11,8 @@ const multer  = require('multer')
 
 module.exports = {
     createRequests : (req, res)=>{
+        mongoose.set('useFindAndModify', false);
+        console.log('try and catch')
         if(req.body.email==undefined){
             res.json(
                               {
@@ -23,9 +25,10 @@ module.exports = {
 
         const rqst = new reqst();
         rqst.email = req.body.email;
-        rqst.img = req.file.filename;
-        rqst.loc = req.body.image;
+        rqst.title = req.body.title;
+        rqst.loc = req.body.loc;
         rqst.phone = req.body.phone;
+        rqst.expdate = req.body.date;
         rqst.desc = req.body.desc;
         console.log('get1')
         rqst.save()
@@ -47,7 +50,8 @@ module.exports = {
                 }
             })
         }).catch((error)=>{
-            res.send('error bvc')
+            console.log(err)
+            res.json('error')
         })
    },
 
@@ -68,18 +72,23 @@ module.exports = {
     })
 // res.send("hey")
    } ,
-   getAllUser : (req,res)=>{
-    reqst.find({},(err,result)=>{
+   getAllDonation: (req,res)=>{
+    reqst.find({"createdAt":{$lt:new Date(Date.now() - 24*60*60 * 1000*2)}
+    },(err,result)=>{
         if(err){
-            console.log('err')
+            res.json({err:"err "});
         }
         if(result){
-            console.log(result)
+            res.json(result);
         }
-        res.send('jj')
+    
     })
      
       
-    } 
+    } ,
+    delUserCntrl :(req,res,next)=>{
+        console.log("id : ",req.body.id)
+        res.json({msg:"DAta deleted hey"}) 
+    }
 
 }

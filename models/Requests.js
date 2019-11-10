@@ -8,7 +8,7 @@ const reqSchema = new schema(
                     trim: true, 
                     default: ' ' 
                 },
-        img : 
+        title: 
                 {
                      type: String, 
                      trim: true, 
@@ -19,7 +19,13 @@ const reqSchema = new schema(
                     type: String, 
                     trim: true, 
                     default: ' ' 
-                }, 
+                },
+        expdate : 
+                {
+                        type: String, 
+                        trim: true, 
+                        default: ' ' 
+                } ,
         phone  : 
                 {
                     type: String, 
@@ -31,10 +37,15 @@ const reqSchema = new schema(
                     type: String, 
                     trim: true, 
                     default: ' ' 
-                },
+                }
+            },{
+                    timestamps: { 
+                        createdAt: 'createdAt',
+                        updatedAt: 'updatedAt' 
+                  
+             }
         
-    }
-);
+    });
 
 const reqst = mongoose.model('Requests',reqSchema); 
 module.exports = reqst;

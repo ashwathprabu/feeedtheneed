@@ -11,6 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { UserpanelComponent} from './userdashboard/userpanel/userpanel.component';
 import { PnfPageComponent } from './page-not-found/pnf-page/pnf-page.component';
 import { AuthGuard} from '../app/route-guard/auth.guard'
+import { DonationsComponent } from './userdashboard/donations/donations.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,9 @@ const routes: Routes = [
   { path :'about', component: AboutHeadComponent},
   { path :'register', component: RegisterComponent},
   { path :'login', component: LoginComponent},
-  { path :'usercontrolpanel', component: UserpanelComponent, 
+  { path :'usercontrolpanel', component: UserpanelComponent,
   canActivate:[AuthGuard]},
-  { path : '**', component : PnfPageComponent }
+  { path : '**', component : PnfPageComponent } 
 ];
 
 @NgModule({

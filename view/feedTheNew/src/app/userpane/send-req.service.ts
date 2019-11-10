@@ -13,9 +13,23 @@ export class SendReqService {
   }
   url = 'http://localhost:3000/food/newuser'
   url1 = 'http://localhost:3000/food/pro'
+  url2 = 'http://localhost:3000/food/get'
+  url3 = 'http://localhost:3000/food/deldonation'
   // const headers = new HttpHeaders()
-  sendreq(reqData){
-    
+// Deleting Donation
+  delDonation(recid){
+    const headers = new HttpHeaders()
+  .set('Authorization',`Bearer ${this.isLogin()}` ); 
+  return this.http.post<any>(this.url3,
+  recid,
+  {
+      headers: headers
+  }
+);
+  }
+
+  sendreq(reqData){  
+    console.log("fromsend req")
   const headers = new HttpHeaders()
   .set('Authorization',`Bearer ${this.isLogin()}` ); 
   return this.http.post<any>(this.url,
@@ -35,6 +49,15 @@ getProfile(){
   }
 );
 
+}
+getAllDonation(){
+  const headers = new HttpHeaders()
+  .set('Authorization',`Bearer ${this.isLogin()}` ); 
+  return this.http.get<any>(this.url2, 
+  {
+      headers: headers
+  }
+);
 }
 
 
