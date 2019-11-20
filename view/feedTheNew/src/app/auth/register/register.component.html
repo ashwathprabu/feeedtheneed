@@ -2,109 +2,82 @@
   <div class="row">
     <div class="col l3 m3 s12"></div>
     <div class="col l6 m6 s12">
-      <form #formsControl="ngForm" *ngIf="!submitted"  (ngSubmit)="onSubmit(f)" novalidate> 
-           <div class="card-panel z-depth-2">
-           <h5 class="center">Register</h5>
-           <p  class="center">Join to our community now !</p> 
-            <div class="input-field">
-              <i class="material-icons prefix">account_circle</i>
-                <input 
-                  type="text"
-                  #name
-                  name="username" 
-                  pattern="[A-Za-z]{1,10}" 
-                  [(ngModel)]="model.username" 
-                  class="validate" 
-                  required >
-                <label>Enter username</label>
-              <span class="helper-text" data-error="Enter valid username" data-success="right"></span>
-            </div>
-            
-             <div class="input-field">
-              <i  class="material-icons prefix">email</i>
-              <input 
-                  type="email" 
-                  name="email" 
-                  class="validate" 
-                  [(ngModel)]="model.email" 
-                  required>
-                <label>Enter email</label>
-              <span class="helper-text" data-error="wrong" data-success="right"></span>
-            </div>
-            
-             <div class="input-field">
-              <i  class="material-icons prefix">lock</i>
-                <input 
-                    type="number" 
-                    name="phone"  
-                    pattern="^\d{10}$" 
-                    [(ngModel)]="model.phone" 
-                    class="validate" 
-                    required>
-                <label>Enter phone number</label>
-                <span 
-                    class="helper-text" 
-                    data-error="wrong" 
-                    data-success="right"
-                    required>
-                </span>
-              </div>
-            
-              
-             <div class="input-field">
-              <i class="material-icons prefix">vpn_key</i>
-              <input 
-                    type="password" 
-                    name="password" 
-                    class="validate"  
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                    [(ngModel)]="model.password" 
-                    required>
-              <label>Enter password</label>
-              <span 
-              class="helper-text" 
-              data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-              data-success="right"> 
+      <form #formsControl="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="card-panel z-depth-2">
+          <h5 class="center">Register</h5>
+          <p class="center">Join to our community now !</p>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input type="text" #name name="username" pattern="[A-Za-z]{1,10}" [(ngModel)]="model.username"
+              class="validate" required>
+            <label>Enter username</label>
+            <span class="helper-text" data-error="Enter valid username" data-success="right"></span>
+          </div>
+
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" name="email" class="validate" [(ngModel)]="model.email" required>
+            <label>Enter email</label>
+            <span class="helper-text" data-error="wrong" data-success="right"></span>
+          </div>
+
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="number" name="phone" pattern="^\d{10}$" [(ngModel)]="model.phone" class="validate" required>
+            <label>Enter phone number</label>
+            <span class="helper-text" data-error="wrong" data-success="right" required>
             </span>
-            </div>
-            <div class="input-field">
-                <p class="right">Already have an account? <a   [routerLink]="['/login']"  >login</a></p>
-            </div>
-           
-            <input type="submit" name="submit" value="Register"[disabled]="!formsControl.form.valid" class="btn left col s12 m12 l6"> 
-            <!-- <input type="submit" name="s" value="Clear" (click)="formsControl.reset()" class="btn right col s12 m12 l6 red"> -->
-            <a class="btn-flat right col s12 m12 l6 red" name="s" value="Clear" (click)="formsControl.reset()">Button</a>
-            <div class="clearfix">
+          </div>
 
-              
-            </div>
-         </div>
+
+          <div class="input-field">
+            <i class="material-icons prefix">vpn_key</i>
+            <input type="password" name="password" class="validate" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              [(ngModel)]="model.password" required>
+            <label>Enter password</label>
+            <span class="helper-text"
+              data-error="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              data-success="right">
+            </span>
+          </div>
+          <div class="input-field">
+            <p class="right">Already have an account? <a [routerLink]="['/login']">login</a></p>
+          </div>
+
+          <input type="submit" name="submit" value="Register" class="btn left col s12 m12 l6">
+          <!-- <input type="submit" name="s" value="Clear" (click)="formsControl.reset()" class="btn right col s12 m12 l6 red"> -->
+          <a class="btn-flat right col s12 m12 l6 red" name="s" value="Clear" (click)="formsControl.reset()">Button</a>
+          <div class="clearfix">
+
+
+          </div>
+        </div>
       </form>
-      
-    </div>
-      <div class="col l3 m3 s12"></div>
 
-    
-    
-  
-</div>
     </div>
+    <div class="col l3 m3 s12"></div>
+
+
+
+
+  </div>
+</div>
 <!-- login form put in the form -->
 <div class="modal modal-fixed-footer" id="login">
   <form action="" method="POST">
-      <div class="modal-conent">
-        <div class="container">
-              <h5 class="center">Login</h5>
-            <p class="center">Let's talk & share</p>
-            <div class="row">
-            
-              <div class="col m12 s12">
-                <div class="input-field">
+    <div class="modal-conent">
+      <div class="container">
+        <h5 class="center">Login</h5>
+        <p class="center">Let's talk & share</p>
+        <div class="row">
+
+          <div class="col m12 s12">
+            <div class="input-field">
               <i class="material-icons prefix">person</i>
               <input type="text" name="username">
               <label>Enter username/email</label>
             </div>
-            
+
             <div class="input-field">
               <i class="material-icons prefix">lock</i>
               <input type="password" name="pass1">
@@ -116,27 +89,27 @@
                 <span>Remember me</span>
               </label>
             </p>
-              </div>
-              
-            </div>
-        </div><!-- end of modal container -->
-      </div>
-      
-      <div class="modal-footer">
-            <div class="container">
-          
-                
-                   <p class="left">Are you New? <a routerLink="/register"  class="modal-trigger">Register</a></p>
-                   <input type="submit" name="submit" value="login" class="btn pulse">
-                    <input type="button"  value="close" class="btn modal-close red">
-                </div>
+          </div>
 
-         
-           
-            </div>
-     
-   </form>
-  
+        </div>
+      </div><!-- end of modal container -->
+    </div>
+
+    <div class="modal-footer">
+      <div class="container">
+
+
+        <p class="left">Are you New? <a routerLink="/register" class="modal-trigger">Register</a></p>
+        <input type="submit" name="submit" value="login" class="btn pulse">
+        <input type="button" value="close" class="btn modal-close red">
+      </div>
+
+
+
+    </div>
+
+  </form>
+
 </div>
 <div *ngIf="submitted" class="container red ">
   <p>Login</p>

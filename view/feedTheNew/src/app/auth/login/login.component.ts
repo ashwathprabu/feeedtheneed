@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     data =>{console.log(data);
       if(data.success){
         localStorage.setItem('token',data.token)
-        M.toast({html: data.message, classes: 'rounded red',color:'green'})
+        M.toast({html: data.message, classes: 'rounded green',color:'green'})
     this.router.navigateByUrl('/usercontrolpanel')
       return true
    }else{

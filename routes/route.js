@@ -1,29 +1,33 @@
-const express = require('express');
-const routes   = require('express').Router(); 
-const auth = require('../controller/authControl')
-const user = require('../controller/requestController')
-const chk = require('../config/Authcheck')
-const multer  = require('multer')
-const Media = require('../models/media')
+const express = require("express");
+const routes = require("express").Router();
+const auth = require("../controller/authControl");
+const user = require("../controller/requestController");
+const chk = require("../config/Authcheck");
+const multer = require("multer");
+const Media = require("../models/media");
+const delivr = require("../controller/delivary");
 
-
- 
 // AuthRoute Handler
-routes.post('/register',auth.registerController)
-routes.post('/login',auth.loginController)
+routes.post("/register", auth.registerController);
+routes.post("/login", auth.loginController);
 
 // user control
-routes.post('/newuser',chk.verifyToken, user.createRequests)
-routes.get('/getuser',user.getRequestCntrl)
+routes.post("/newuser", chk.verifyToken, user.createRequests);
+routes.get("/getuser", user.getRequestCntrl);
 
 // test
-routes.get('/pro',chk.verifyToken,user.getRequestCntrl)
- 
-routes.get('/get',chk.verifyToken,user.getAllDonation)
-routes.post('/aminlogin',auth.adminLoginController)
+routes.get("/pro", chk.verifyToken, user.getRequestCntrl);
 
-routes.post('/deldonation',chk.verifyToken,user.delUserCntrl)
+routes.get("/get", chk.verifyToken, user.getAllDonation);
+routes.post("/aminlogin", auth.adminLoginController);
 
+routes.post("/deldonation", chk.AuthverifyToken, user.delUserCntrl);
+routes.post("/orderfood", chk.AuthverifyTokenauth, user.myOrderCntrl);
+
+routes.get("/getmyord", chk.verifyToken, user.getMyorderdcntrl);
+
+routes.post("/delvered", chk.verifyToken, delivr.ordDelivrd);
+routes.post("/cancelorder", chk.verifyToken, delivr.cancelOrd);
 // Add New Media File
 // configuring File Upload
 // const storage = multer.diskStorage({
@@ -44,7 +48,7 @@ routes.post('/deldonation',chk.verifyToken,user.delUserCntrl)
 //     console.log(req.file);
 //     // Initializing Media Info
 //     let newFile = new Media({
-//         filePath: 'assets\/uploads\/' + req.file.filename, 
+//         filePath: 'assets\/uploads\/' + req.file.filename,
 //     });
 //     newFile.save((err) => {
 //         if (err) {
@@ -58,9 +62,9 @@ routes.post('/deldonation',chk.verifyToken,user.delUserCntrl)
 //               success: true
 //         })
 //   })
- 
-// }) 
-    // Add File to DB
+
+// })
+// Add File to DB
 //     Media.addNewFile(newFile, (err, result) => {
 //         if (err) {
 //             res.status(500).json({ success: false, msg: 'Image Not added to DB. Error: ' + err });
@@ -70,7 +74,4 @@ routes.post('/deldonation',chk.verifyToken,user.delUserCntrl)
 //     });
 // });
 
-
-
 module.exports = routes;
-

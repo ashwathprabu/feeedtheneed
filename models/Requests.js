@@ -37,7 +37,13 @@ const reqSchema = new schema(
                     type: String, 
                     trim: true, 
                     default: ' ' 
-                }
+                },
+        status    :
+                 {
+                    type: String,
+                    trim : true,
+                    default : ' '
+                 }
             },{
                     timestamps: { 
                         createdAt: 'createdAt',

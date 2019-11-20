@@ -27,6 +27,12 @@ const userSchema = new schema(
                      ref: 'Requests' 
                    }
                  ],
+        myord : [
+                    {
+                        type: schema.Types.ObjectId,
+                        ref: 'foodords' 
+                    }
+                  ],
         email     :  
                 {
                     type: String, 
